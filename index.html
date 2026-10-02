@@ -1,370 +1,365 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FINEONE - Premium Shopping</title>
+<title>FINEONE - Premium Shopping</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-    body {
-      background: #f7f7f7;
-      color: #111;
-    }
+body {
+    background: #f7f7f7;
+    color: #111;
+}
 
-    header {
-      background: #111;
-      color: white;
-      padding: 18px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+header {
+    background: #111;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
 
-    nav {
-      display: flex;
-      gap: 25px;
-      align-items: center;
-    }
+.fine {
+    color: white;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 15px;
-    }
+.one {
+    color: #1677ff;
+}
 
-    .cart {
-      background: white;
-      color: #111;
-      padding: 9px 15px;
-      border-radius: 20px;
-      font-weight: bold;
-    }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+}
 
+nav a:hover {
+    color: #1677ff;
+}
+
+.hero {
+    min-height: 520px;
+    background: linear-gradient(135deg, #111, #222);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 8%;
+    gap: 40px;
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.hero-text h1 {
+    font-size: 55px;
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #1677ff;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #005edb;
+}
+
+.product-show {
+    width: 330px;
+    height: 330px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-show img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+section {
+    padding: 70px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.product-image {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #1677ff;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.cart-btn {
+    width: 100%;
+    border: none;
+    background: #111;
+    color: white;
+    padding: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart-btn:hover {
+    background: #1677ff;
+}
+
+.why {
+    background: #111;
+    color: white;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    background: #1d1d1d;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: #bbb;
+}
+
+footer {
+    background: #050505;
+    color: #aaa;
+    text-align: center;
+    padding: 25px;
+}
+
+@media (max-width: 800px) {
     .hero {
-      min-height: 520px;
-      background: linear-gradient(120deg, #111, #292929);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 60px 8%;
-      gap: 40px;
+        flex-direction: column;
+        text-align: center;
     }
 
-    .hero-text {
-      max-width: 550px;
-    }
-
-    .hero-text small {
-      color: #aaa;
-      font-size: 15px;
-      letter-spacing: 2px;
-    }
-
-    .hero h1 {
-      font-size: 58px;
-      line-height: 1;
-      margin: 18px 0;
-    }
-
-    .hero p {
-      color: #ccc;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 14px 25px;
-      background: white;
-      color: #111;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-    }
-
-    .product-show {
-      width: 330px;
-      height: 330px;
-      border-radius: 30px;
-      background: #202020;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border: 1px solid #444;
-    }
-
-    .product-show span {
-      font-size: 75px;
-    }
-
-    section {
-      padding: 60px 7%;
-    }
-
-    .title {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .title h2 {
-      font-size: 34px;
-      margin-bottom: 8px;
-    }
-
-    .title p {
-      color: #666;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    }
-
-    .product-image {
-      height: 240px;
-      background: #eee;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 70px;
-    }
-
-    .card-content {
-      padding: 20px;
-    }
-
-    .card h3 {
-      margin-bottom: 8px;
-    }
-
-    .rating {
-      color: #f5a623;
-      margin-bottom: 12px;
-    }
-
-    .price {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .buy {
-      width: 100%;
-      border: none;
-      background: #111;
-      color: white;
-      padding: 13px;
-      border-radius: 10px;
-      margin-top: 15px;
-      cursor: pointer;
-      font-weight: bold;
+    .hero-text h1 {
+        font-size: 40px;
     }
 
     .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .feature {
-      background: white;
-      padding: 25px;
-      text-align: center;
-      border-radius: 15px;
+    nav a {
+        margin-left: 10px;
     }
+}
 
-    .feature .icon {
-      font-size: 35px;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background: #111;
-      color: white;
-      padding: 40px 7%;
-      text-align: center;
-    }
-
-    footer p {
-      color: #aaa;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 700px) {
-      nav a {
-        display: none;
-      }
-
-      .hero {
+@media (max-width: 500px) {
+    header {
         flex-direction: column;
-        text-align: center;
-        padding-top: 50px;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .product-show {
-        width: 270px;
-        height: 270px;
-      }
+        gap: 15px;
     }
-  </style>
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .product-show {
+        width: 280px;
+        height: 280px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">FINEONE</div>
-
-    <nav>
-      <a href="#">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#features">Why Us</a>
-      <a href="#" class="cart">🛒 Cart</a>
-    </nav>
-  </header>
-
-  <main>
-
-    <div class="hero">
-      <div class="hero-text">
-        <small>WELCOME TO FINEONE</small>
-
-        <h1>LEVEL UP<br>YOUR GAME.</h1>
-
-        <p>
-          Premium gaming accessories made for better comfort,
-          control and performance.
-        </p>
-
-        <a href="#shop" class="btn">SHOP NOW →</a>
-      </div>
-
-      <div class="product-show">
-        <div>
-          <span>🎮</span>
-          <h3>Gaming Finger Sleeves</h3>
-        </div>
-      </div>
+<header>
+    <div class="logo">
+        <span class="fine">FINE</span><span class="one">ONE</span>
     </div>
 
-    <section id="shop">
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#why">Why Us</a>
+        <a href="#cart">Cart</a>
+    </nav>
+</header>
 
-      <div class="title">
-        <h2>Our Products</h2>
-        <p>Our first FINEONE product</p>
-      </div>
+<section class="hero" id="home">
 
-      <div class="products">
+    <div class="hero-text">
+        <h1>LEVEL UP YOUR STYLE.</h1>
 
-        <div class="card">
+        <p>
+            Premium accessories made for better comfort,
+            control and performance.
+        </p>
 
-          <div class="product-image">
-            🎮
-          </div>
+        <a href="#shop" class="btn">SHOP NOW</a>
+    </div>
 
-          <div class="card-content">
+    <div class="product-show">
+        <img src="product.jpg" alt="FINEONE Product">
+    </div>
 
-            <h3>FINEONE Gaming Finger Sleeves</h3>
+</section>
 
-            <div class="rating">
-              ★★★★★
+<section id="shop">
+
+    <h2 class="section-title">Our Products</h2>
+
+    <div class="products">
+
+        <div class="product-card">
+
+            <div class="product-image">
+                <img src="product.jpg" alt="FINEONE Finger Sleeves">
             </div>
 
-            <div class="price">₹199</div>
+            <h3>FINEONE Finger Sleeves</h3>
 
-            <button class="buy" onclick="addToCart()">
-              ADD TO CART
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                ₹199
+            </div>
+
+            <button class="cart-btn" onclick="addToCart()">
+                ADD TO CART
             </button>
 
-          </div>
-
         </div>
 
-      </div>
+    </div>
 
-    </section>
+</section>
 
-    <section id="features">
+<section class="why" id="why">
 
-      <div class="title">
-        <h2>Why FINEONE?</h2>
-        <p>Simple, secure and reliable shopping</p>
-      </div>
+    <h2 class="section-title">Why FINEONE</h2>
 
-      <div class="features">
+    <div class="features">
 
         <div class="feature">
-          <div class="icon">🚚</div>
-          <h3>Fast Delivery</h3>
-          <p>Quick delivery across India.</p>
+            <h3>Fast Delivery</h3>
+            <p>Quick and reliable delivery.</p>
         </div>
 
         <div class="feature">
-          <div class="icon">💵</div>
-          <h3>Cash on Delivery</h3>
-          <p>Pay when your order arrives.</p>
+            <h3>Cash on Delivery</h3>
+            <p>Pay when your order arrives.</p>
         </div>
 
         <div class="feature">
-          <div class="icon">🔒</div>
-          <h3>Secure Shopping</h3>
-          <p>Your shopping experience stays protected.</p>
+            <h3>Secure Shopping</h3>
+            <p>Safe and simple shopping experience.</p>
         </div>
 
         <div class="feature">
-          <div class="icon">✅</div>
-          <h3>Quality Products</h3>
-          <p>Products selected for FINEONE customers.</p>
+            <h3>Quality Products</h3>
+            <p>Products selected with care.</p>
         </div>
 
-      </div>
+    </div>
 
-    </section>
+</section>
 
-  </main>
-
-  <footer>
-    <h2>FINEONE</h2>
-    <p>Gaming • Lifestyle • More</p>
+<footer id="cart">
+    <p>Accessories • Lifestyle • More</p>
     <p>© 2026 FINEONE. All rights reserved.</p>
-  </footer>
+</footer>
 
-  <script>
-    function addToCart() {
-      alert("fineone gaming finger sleeves added to cart!");
-    }
-  </script>
+<script>
+function addToCart() {
+    alert("FINEONE Finger Sleeves added to cart!");
+}
+</script>
 
 </body>
 </html>
