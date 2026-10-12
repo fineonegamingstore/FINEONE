@@ -362,8 +362,12 @@ footer {
 </footer>
 
 <script>
+let cartCount = 0;
+
 function addToCart() {
-    alert("FINEONE Finger Sleeves added to cart!");
+    cartCount++;
+
+    alert("FINEONE Finger Sleeves added to cart! Total items: " + cartCount);
 }
 </script>
 
