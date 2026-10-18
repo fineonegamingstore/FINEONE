@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FINEONE - Checkout</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f3f5f8;
+    color: #111827;
+}
+
+header {
+    background: #111827;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 25px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #00000012;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 13px;
+    margin-top: 7px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.order-box {
+    background: #f3f7ff;
+    padding: 18px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #087cf0;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #065fc0;
+}
+
+.note {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>FINEONE</h1>
+    <p>Secure Checkout</p>
+</header>
+
+<div class="container">
+    <h2>Delivery Details</h2>
+
+    <div class="order-box">
+        <h3>Order Summary</h3>
+        <p>FINEONE Finger Sleeves</p>
+        <p>Price per item: ₹199</p>
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" min="1" value="1"
+        oninput="updateTotal()">
+        <h3 id="total">Total: ₹199</h3>
+    </div>
+
+    <form id="checkoutForm">
+        <label for="customerName">Full Name</label>
+        <input id="customerName" type="text" required
+        placeholder="Enter your full name">
+
+        <label for="mobile">Mobile Number</label>
+        <input id="mobile" type="tel" required
+        pattern="[0-9]{10}" maxlength="10"
+        placeholder="10-digit mobile number">
+
+        <label for="address">Full Delivery Address</label>
+        <textarea id="address" required
+        placeholder="House number, village, mandal, district, PIN code"></textarea>
+
+        <label>Payment Method</label>
+        <p>Cash on Delivery (COD)</p>
+
+        <button type="submit">PLACE ORDER</button>
+    </form>
+
+    <p class="note">
+        Note: This is a checkout demo. Orders are not yet sent to the
+        store owner. A secure order system must be connected before
+        accepting real customer orders.
+    </p>
+
+    <p><a href="index.html">← Back to Shopping</a></p>
+</div>
+
+<script>
+function updateTotal() {
+    const quantity = Math.max(
+        1,
+        parseInt(document.getElementById("quantity").value) || 1
+    );
+
+    document.getElementById("total").textContent =
+        "Total: ₹" + (quantity * 199);
+}
+
+document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    alert("Checkout demo matrame. Real order place kaaledu. Order system connect chesina tarvatha customers orders receive cheyyagalavu.");
+});
+</script>
+
+</body>
+</html>
