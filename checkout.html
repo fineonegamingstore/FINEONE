@@ -153,7 +153,24 @@ function updateTotal() {
 document.getElementById("checkoutForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    alert("Checkout demo matrame. Real order place kaaledu. Order system connect chesina tarvatha customers orders receive cheyyagalavu.");
+    const name = document.getElementById("customerName").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const quantity = Math.max(1, parseInt(document.getElementById("quantity").value) || 1);
+    const total = quantity * 199;
+
+    const message = "FINEONE NEW ORDER\n\n" +
+        "Product: FINEONE Finger Sleeves\n" +
+        "Quantity: " + quantity + "\n" +
+        "Total: Rs. " + total + "\n" +
+        "Name: " + name + "\n" +
+        "Mobile: " + mobile + "\n" +
+        "Address: " + address;
+
+    window.open(
+        "https://wa.me/919392636404?text=" + encodeURIComponent(message),
+        "_blank"
+    );
 });
 </script>
 
